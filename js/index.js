@@ -37,7 +37,10 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
+/* Task 1 and Task 2
+   Updated HTML with contents of siteContent
+ */
+//logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
@@ -76,3 +79,13 @@ for(property in contactContent){
   contact[i].textContent = contactContent[property];
   i++;
 }
+
+//footer
+document.querySelector('footer p').textContent = siteContent["footer"]["copyright"];
+
+/**## Task 3: Add new content
+* [ ] Change the color of the navigation text to be green.
+* [ ] Utilize `.appendChild()` and `.prepend()` to add two new items to the navigation system. You can call them whatever you want.
+* [ ] Check your work by looking at the [original html](original.html) in the browser
+ */
+document.querySelectorAll('nav a').forEach(x => x.style.color="green");
