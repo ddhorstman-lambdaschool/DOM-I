@@ -67,3 +67,12 @@ bottomContentH4[1].textContent = siteContent["main-content"]["product-h4"];
 bottomContentP[1].textContent = siteContent["main-content"]["product-content"];
 bottomContentH4[2].textContent = siteContent["main-content"]["vision-h4"];
 bottomContentP[2].textContent = siteContent["main-content"]["vision-content"];
+
+//contact
+let contact = document.querySelectorAll(".contact *");
+let contactContent = siteContent["contact"];
+let i = 0;
+for(property in contactContent){
+  contact[i].textContent = contactContent[property];
+  i++;
+}
