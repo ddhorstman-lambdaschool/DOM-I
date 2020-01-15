@@ -89,3 +89,8 @@ document.querySelector('footer p').textContent = siteContent["footer"]["copyrigh
 * [ ] Check your work by looking at the [original html](original.html) in the browser
  */
 document.querySelectorAll('nav a').forEach(x => x.style.color="green");
+let firstNav = document.createElement('a');
+let lastContent = document.createElement('a');
+lastContent.textContent = "Us";
+firstNav.textContent = "Our";
+document.querySelector('nav').appendChild(lastContent).parentElement.prepend(firstNav);
