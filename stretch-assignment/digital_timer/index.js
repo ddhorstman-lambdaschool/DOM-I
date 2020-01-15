@@ -8,7 +8,13 @@ function count() {
         document.getElementById('secondTens').textContent = Math.floor(time / 1000) % 10;
     }
     else {
-        document.querySelectorAll('.digit').forEach(x=>x.style.color="red");
+        document.querySelector('.digits').classList.add('redDigit');
+        document.getElementById('start-button').removeAttribute("disabled");
+
     }
 }
-window.setInterval(count, 10);
+function startTimer(){
+    time = 0;
+    window.setInterval(count, 10);
+    document.getElementById('start-button').setAttribute("disabled","");
+}
