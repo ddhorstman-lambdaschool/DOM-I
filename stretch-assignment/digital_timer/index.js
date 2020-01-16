@@ -1,6 +1,6 @@
 let time = 0;
 //I'm sure there's a way to cancel out setInterval, but
-//I don't know it and have no internet access :/
+//I don't know it and have no internet access
 let timerRunning = false;
 window.setInterval(count, 10);
 function count() {
