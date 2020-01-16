@@ -1,11 +1,12 @@
 let time = 0;
+let maxTime = 1000;
 //I'm sure there's a way to cancel out setInterval, but
 //I don't know it and have no internet access
 let timerRunning = false;
 window.setInterval(count, 10);
 function count() {
     if(!timerRunning) return;
-    if (time < 1000) {
+    if (time < maxTime) {
         time++;
         document.getElementById('msTens').textContent = time % 10;
         document.getElementById('msHundreds').textContent = Math.floor(time / 10) % 10;
@@ -18,7 +19,9 @@ function count() {
     }
 }
 function startTimer(){
-    timerRunning = true;
+    timerRunning = true; 
+    maxTime=100*parseInt(document.getElementById('max-time').getAttribute("value"));
+    alert(maxTime);
     document.getElementById('start-button').setAttribute("disabled","");
     document.getElementById('reset-button').removeAttribute("disabled");
 }
