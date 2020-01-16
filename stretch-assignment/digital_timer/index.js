@@ -1,6 +1,7 @@
 let time = 0;
 let maxTime = 1000;
 let timerID;
+let buttonState = "Start";
 function count() {
     if (time < maxTime) {
         time++;
@@ -14,20 +15,33 @@ function count() {
         document.querySelector('.digits').classList.add('redDigit');
     }
 }
+function button(){
+    if(buttonState==="Start") startTimer();
+    else resetTimer();
+}
 function startTimer() {
     timerID = window.setInterval(count, 10);
     maxTime = 100 * parseInt(document.getElementById('max-time').value);
-    //alert(maxTime);
     document.getElementById('start-button').setAttribute("disabled", "");
-    document.getElementById('reset-button').removeAttribute("disabled");
+    changeButton();
+}
+function changeButton() {
+    let button = document.getElementById('start-button');
+    if (buttonState==="Start") {
+        buttonState="Reset";
+    }
+    else {
+        buttonState="Start";
+    }
+    button.textContent = buttonState;
+    button.removeAttribute("disabled");
 }
 function resetTimer() {
     time = 0;
     clearInterval(timerID);
     document.querySelector('.digits').classList.remove('redDigit');
-    document.getElementById('start-button').removeAttribute("disabled");
-    document.getElementById('reset-button').setAttribute("disabled", "");
     document.querySelectorAll('.digit').forEach(x => {
         if (x.id !== 'colon') x.textContent = '-';
     });
+    changeButton();
 }
