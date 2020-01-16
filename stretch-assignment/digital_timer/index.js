@@ -1,14 +1,14 @@
 let time = 0;
-let maxTime = 1000;
+let maxTime;
 let timerID;
 let buttonState = "Start";
 function count() {
     if (time < maxTime) {
         time++;
         document.getElementById('msTens').textContent = time % 10;
-        document.getElementById('msHundreds').textContent = (time / 10) % 10;
-        document.getElementById('secondOnes').textContent = (time / 100) % 10;
-        document.getElementById('secondTens').textContent = (time / 1000) % 10;
+        document.getElementById('msHundreds').textContent = Math.floor(time / 10) % 10;
+        document.getElementById('secondOnes').textContent = Math.floor(time / 100) % 10;
+        document.getElementById('secondTens').textContent = Math.floor(time / 1000) % 10;
     }
     else {
         clearInterval(timerID);
@@ -20,19 +20,15 @@ function button(){
     else resetTimer();
 }
 function startTimer() {
-    timerID = window.setInterval(count, 10);
     maxTime = 100 * parseInt(document.getElementById('max-time').value);
+    timerID = window.setInterval(count, 10);
     document.getElementById('start-button').setAttribute("disabled", "");
     changeButton();
 }
 function changeButton() {
     let button = document.getElementById('start-button');
-    if (buttonState==="Start") {
-        buttonState="Reset";
-    }
-    else {
-        buttonState="Start";
-    }
+    if (buttonState==="Start") buttonState="Reset";
+    else buttonState="Start";
     button.textContent = buttonState;
     button.removeAttribute("disabled");
 }
