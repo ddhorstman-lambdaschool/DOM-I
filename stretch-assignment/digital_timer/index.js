@@ -21,7 +21,7 @@ function count() {
 function startTimer(){
     timerRunning = true; 
     maxTime=100*parseInt(document.getElementById('max-time').getAttribute("value"));
-    alert(maxTime);
+    //alert(maxTime);
     document.getElementById('start-button').setAttribute("disabled","");
     document.getElementById('reset-button').removeAttribute("disabled");
 }
