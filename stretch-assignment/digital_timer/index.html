@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>DOM I</title>
+    <title>Simple Timer</title>
     <link rel="stylesheet" href="./styles.css">
+    <script src="index.js"></script>
   </head>
   <body>
+    <h1>Simple Timer</h1>
     <div class="digits">
       <div class="digit" id="secondTens">-</div>
       <div class="digit" id="secondOnes">-</div>
       <div class="digit" id="colon">:</div>
       <div class="digit" id="msHundreds">-</div>
       <div class="digit" id="msTens">-</div>
+    </div>
+    <div class="Controls">
+      <input id="max-time" type="text" value="10" size="2"> seconds.
+      <button id="start-button" onclick="button()">Start</button>
     </div>
   </body>
 </html>
